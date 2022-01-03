@@ -1,0 +1,60 @@
+.carousel{
+    overflow: hidden; /*taşma verdik,taşma istemiyorum oyüzden max ağırlık verdim altta*/
+    max-width: 600px;
+    position: relative;/*göreceli konumlandırma,istedimiz gibi konumlanddirabiliriz*/
+}
+
+.carousel .carousel_item,
+.carousel .carousel_item--hidden{
+    display: none; /*esneklik yok*/   /*fotolar*/
+}
+
+.carousel .carousel_item img {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+}
+
+.carousel .carousel_item--visible{
+    display: block; /*Display: block; Bir elementin kutu şeklinde alan kaplamasını sağlayan kod parçasıdır. Kullanıldığı anda element yeni bir satırdan başlar.*/
+    animation: fadeVisibility 0.5s; /*solma görünürlük */
+}
+
+.carousel .carousel_actions{ /*buttonlar*/
+    display: flex; /*buttonlara esneklik veriyoruz,hareket etmeleri icin,buttonları sag ve sola yasladik */ 
+    width: 100%;
+    justify-content: space-between; /*iki button arasina boşluk veriyor*/
+    position: absolute;/*artık yukarı itebiliriz*/
+    top: 50%;
+    transform: translateY(-50%);/*hizalama icin analog saat örenegin de vardi*/
+    /*display flex ile esneklik verdim,position absolute ile carousel referans alıp hareket ettirdim */
+}
+
+.carousel .carousel_actions button{
+    border-radius: 50px;
+    border: 0px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+}
+
+.carousel .carousel_actions button#carousel_button--prev{
+    margin-left: 20px;
+}
+
+
+.carousel .carousel_actions button#carousel_button--next{
+    margin-right: 20px;
+}
+
+@keyframes fadeVisibility {
+    0%{
+        opacity: 0;
+    }
+    100%
+    {
+        opacity: 1;
+        transform: opacity linear; /*Dönüşüm opaklığı doğrusalına yapıştıracağız sanırım orada çalışacak*/
+    }
+}
